@@ -9,7 +9,7 @@ async function randomPage(req, res) {
   await client.connect();
 
   const data = await client.query("select id from info");
-  console.log(data);
+  console.log('The number is ', data.rows[0].id);
   await client.end();
 
   res.render("random", { title: data.rows[0].id, paragraphs: ["is the number"], links: [] });
